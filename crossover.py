@@ -1,42 +1,50 @@
 
-binary_parents = ['10.00010100100010101010111000001010100100101110100101111111', '01.00010001000111000010010110000101110101011100001010101101', '00.01010101111101001111001000000011011011000000000011110110', '00.01001001101101111101101001110000100000110000010001000110']
-new_population = []
+def crossover (binary_parents):
+    new_population = []
 
-while len(binary_parents) != 0:
+    while len(binary_parents) != 0:
+        parent1  = binary_parents[0].split('.')
+        parent2 = binary_parents[1].split('.')
 
-    parent1  = binary_parents[0].split('.')
-    parent2 = binary_parents[1].split('.')
+        #sinal
+        sinal1 = parent1[0][:1]
+        sinal2 = parent2[0][:1]
 
-    #inteiro
-    x1 = parent1[0][:1]
-    x2 = parent1[0][1:]
+        #inteiro
+        x1 = parent1[0][1:5]
+        x2 = parent1[0][5:]
 
-    y1 = parent2[0][:1]
-    y2 = parent2[0][1:]
+        y1 = parent2[0][1:5]
+        y2 = parent2[0][5:]
 
-    newx = x1 + y2
-    newy = y1 + x2
-    # print(newx,newy)
+        newx = x1 + y2
+        newy = y1 + x2
+        # print(newx,newy)
 
 
-    #divisores
-    a1 = parent1[1][:28]
-    a2 = parent1[1][28:]
+        #divisores
+        a1 = parent1[1][:8]
+        a2 = parent1[1][8:]
 
-    b1 = parent2[1][:28]
-    b2 = parent2[1][28:]
+        b1 = parent2[1][:8]
+        b2 = parent2[1][8:]
 
-    newa = a1 + b2
-    newb = b1 + a2
+        newa = a1 + b2
+        newb = b1 + a2
 
-    # print(newa,newb)
+        # print(newa,newb)
 
-    new_parent1 = newx+newb
-    new_parent2 = newy+newa
+        new_parent1 = sinal1+newx+'.'+newb
+        new_parent2 = sinal2+newy+'.'+newa
 
-    new_population.append(new_parent1)
-    new_population.append(new_parent2)
+        new_population.append(new_parent1)
+        new_population.append(new_parent2)
 
-    binary_parents.pop()
-    binary_parents.pop()
-    print(new_population)
+        binary_parents.pop()
+        binary_parents.pop()
+    
+    return new_population
+
+binary_parents = ['000010000.0010011100000000', '001111000.1001100001110001', '100000001.0011100001110001', '000000001.0000000001010010', '000000001.1000000101010001', '000000010.0000000000000000'] 
+new = crossover(binary_parents)
+print(new)

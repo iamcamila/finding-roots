@@ -1,4 +1,5 @@
 from absolute_error import erro
+from crossover import crossover
 from random_numbers import aleatorios
 from conversion import tobinario, todecimal
 from max_min import MaxAndMin
@@ -27,7 +28,7 @@ initialPopulation = aleatorios(qtd, ponto)
 # print(initialPopulation)
 
 # calculando erro da primeira geração
-x = 1
+x = 1 #ERRO ABSOLUTO
 vet_error = erro(x, initialPopulation)
 
 # selecionando os melhores indivíduos
@@ -40,6 +41,11 @@ for value in best_parents:
     binary_parents.append(tobinario(value))
 print('\n----------- População em Binário -------------')
 print(binary_parents)
+
+new_parents = crossover(binary_parents)
+print('\n----------- Nova População em Binário -------------')
+
+print(new_parents)
 
 # populacao_decimal = []
 # for value in populacao_binario:
