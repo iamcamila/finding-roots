@@ -8,7 +8,7 @@ def selection (initialPopulation, vet_error):
 
     res = []
 
-    for i in range(4):
+    for i in range(len(initialPopulation)):
         min_error = min(vet_error)
         index_value = vet_error.index(min_error)
         res.append(initialPopulation[index_value])

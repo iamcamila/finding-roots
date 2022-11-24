@@ -3,6 +3,6 @@
 def erro (x, y):
     err = []
     for i in range(len(y)):
-        # err.append(round(y[i]-x, 3))
-        err.append(y[i]-x)
+        err.append(abs(round(y[i]-x, 4)))
+
     return err

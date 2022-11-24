@@ -1,8 +1,4 @@
 
-# x = '1001'
-# r = int(x,2)
-# print(r)
-
 def tobinario(y):
     ybint = ''
     ybdec = ''
@@ -16,10 +12,10 @@ def tobinario(y):
     y = y.split('.')
     if len(y) > 1:
         inteiro = y[0]
-        print(inteiro)
+        # print(inteiro)
         if sinal == '1':
             inteiro = y[0][1:]
-            print(inteiro)
+            # print(inteiro)
         ybint = bin(int(inteiro)).replace('0b','')
         
         for num in y[1]:
@@ -68,15 +64,3 @@ def todecimal(y):
     # decimal = int(decimal,2)
     decimal = float(decimal)*sinal
     return decimal
-
-# a = [16.27, 120.9871, -1.3871, 1.0052, 1.8151, 2]
-# b = []
-# for i in range(len(a)):
-#     b.append(tobinario(a[i]))
-# print(b)
-
-# c = []
-# for i in range(len(b)):
-#     c.append(todecimal(b[i]))
-
-# print(c)

@@ -4,16 +4,11 @@ def aleatorios(quantidade, inicial):
     population = []
     if inicial != 0:
         for i in range(quantidade):
-            aleatorio = np.random.random()
+            aleatorio = np.random.random()*10
             population.append(round(aleatorio*inicial, 4))
     else:
         for i in range(quantidade):
-            aleatorio = np.random.random()
-            population.append(aleatorio)
+            aleatorio = np.random.random()*10
+            population.append(round(aleatorio, 4))
     population.append(round(inicial, 4))
     return population
-
-# a = 5
-# b = 2
-# c = aleatorios(a, b)
-# print(c)

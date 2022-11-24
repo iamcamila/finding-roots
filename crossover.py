@@ -1,4 +1,7 @@
 
+from conversion import tobinario, todecimal
+
+
 def crossover (binary_parents):
     new_population = []
 
@@ -19,8 +22,6 @@ def crossover (binary_parents):
 
         newx = x1 + y2
         newy = y1 + x2
-        # print(newx,newy)
-
 
         #divisores
         a1 = parent1[1][:8]
@@ -32,7 +33,6 @@ def crossover (binary_parents):
         newa = a1 + b2
         newb = b1 + a2
 
-        # print(newa,newb)
 
         new_parent1 = sinal1+newx+'.'+newb
         new_parent2 = sinal2+newy+'.'+newa
@@ -40,11 +40,7 @@ def crossover (binary_parents):
         new_population.append(new_parent1)
         new_population.append(new_parent2)
 
-        binary_parents.pop()
-        binary_parents.pop()
-    
-    return new_population
+        binary_parents.pop(0)
+        binary_parents.pop(0)
 
-binary_parents = ['000010000.0010011100000000', '001111000.1001100001110001', '100000001.0011100001110001', '000000001.0000000001010010', '000000001.1000000101010001', '000000010.0000000000000000'] 
-new = crossover(binary_parents)
-print(new)
+    return new_population
